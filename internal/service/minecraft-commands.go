@@ -1,9 +1,10 @@
 package service
 
 import (
+	"fmt"
 	"github.com/gorcon/rcon"
 	"gopkg.in/telebot.v4"
-	"log"
+
 	"parser/internal/models"
 )
 
@@ -13,9 +14,10 @@ func MinecraftCommands(c telebot.Context, command string) error {
 
 	conn, err := rcon.Dial(env.RconnAddress, env.RconnPassword)
 	if err != nil {
-		log.Fatalf("Ошибка подключения к RCON: %v", err)
+		c.Send("Ошибка подключения к RCON.")
 	}
 
+	fmt.Printf(command)
 	resp, err := conn.Execute(command)
 
 	if err != nil {
