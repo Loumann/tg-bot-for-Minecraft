@@ -61,6 +61,7 @@ func BotCommands(bot *telebot.Bot) {
 			fmt.Println(err)
 			return err
 		}
+		return err
 	})
 
 	bot.Handle("/world", func(c telebot.Context) error {
@@ -86,7 +87,7 @@ func BotCommands(bot *telebot.Bot) {
 
 		//Команды для режима игры игрока
 		case "survival", "creative", "spectator":
-			return HandePlayers(c, unique)
+			return HandePlayers(c, "gamemode "+unique)
 
 		default:
 			return c.Respond(&telebot.CallbackResponse{Text: "Неизвестное действие"})

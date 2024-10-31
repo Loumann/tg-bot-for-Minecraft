@@ -92,7 +92,6 @@ func ButtonsCommandGamemode() [][]telebot.InlineButton {
 		Unique: "spectator",
 		Text:   "Наблюдатель",
 	}
-
 	return [][]telebot.InlineButton{
 		{creative, survival},
 		{spectator},
@@ -116,8 +115,11 @@ func ButtonSelectSetTime() [][]telebot.InlineButton {
 		Unique: "18000",
 		Text:   "Ночь",
 	}
-
 	return [][]telebot.InlineButton{
 		{sunrise, day, sunset, night},
 	}
+}
+
+func ButtonsSelectСomplexityMode() {
+
 }
